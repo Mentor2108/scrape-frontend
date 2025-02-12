@@ -14,7 +14,7 @@ import ScrapeResponse from "@/components/ScrapeResponse"
 const TableTypeMap = "Map of Key Value";
 const TableTypeList = "Names of Columns"
 
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:7000"
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || "http://localhost:7000"
 
 export default function ScraperForm() {
     const [request, setRequest] = useState<ScrapeRequest>(defaultScrapeRequest())
@@ -175,7 +175,7 @@ export default function ScraperForm() {
         setLoading(true)
         try {
             console.log("my request", request)
-            const response = await fetch(API_BASE_URL + "/scraper/scrape/url/start/sync", {
+            const response = await fetch(BACKEND_URL + "/scraper/scrape/url/start/sync", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
