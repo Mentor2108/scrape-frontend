@@ -1,11 +1,11 @@
 import './App.css'
-import ScraperConfigPage from './pages/ConfigBasedScraper'
+import ScraperForm from './pages/ScraperForm'
 
 function App() {
   // const [count, setCount] = useState(0)
 
   return (
-    <ScraperConfigPage />
+    <ScraperForm />
   )
 }
 
