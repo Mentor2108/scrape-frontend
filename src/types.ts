@@ -1,6 +1,6 @@
 export interface ScrapeRequest {
     url: string;
-    config?: ScrapeConfig;
+    config: ScrapeConfig;
 }
 
 export interface ScrapeConfig {
@@ -8,7 +8,7 @@ export interface ScrapeConfig {
     depth: number;
     maxlimit: number;
     continueonerror?: boolean; // not using as of now
-    scrape_phase?: ScrapePhaseDefn;
+    scrape_phase: ScrapePhaseDefn;
     process_phase?: ProcessPhaseDefn;
     content: ScrapeDataContentDefn[];
     exclude: string[];
@@ -72,6 +72,9 @@ export const defaultScrapeRequest = (): ScrapeRequest => ({
         depth: 0,
         maxlimit: 0,
         continueonerror: true,
+        scrape_phase: {
+            "library": "chromedp"
+        },
         content: [],
         exclude: ['nav', 'script', 'noscript', 'button', 'style'],
         scrape_images: false,
