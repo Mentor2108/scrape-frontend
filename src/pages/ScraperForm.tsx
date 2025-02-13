@@ -165,13 +165,15 @@ export default function ScraperForm() {
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault()
-        setScrapeResponse(undefined);
+        window.scrollTo({top: 0, left: 0, behavior: 'smooth' });
         if (loading) {
             setErrorOccured(true)
             setTimeout(() => {
                 setErrorOccured(false)
             }, 5000)
+            return
         }
+        setScrapeResponse(undefined);
         setLoading(true)
         try {
             console.log("my request", request)
@@ -480,14 +482,14 @@ export default function ScraperForm() {
                                                 />
                                             </div>
                                             <div>
-                                                <Label htmlFor="table-value">Table Value selector (Generally tb)</Label>
+                                                <Label htmlFor="table-value">Table Value selector (Generally td)</Label>
                                                 <span className="text-red-500 font-bold">*</span>
                                                 <Input
                                                     id="value"
                                                     name="value"
                                                     value={item.table?.column_map?.value}
                                                     onChange={(e) => handleTableColumnMapChange(index, "value", e.target.value)}
-                                                    placeholder="tb"
+                                                    placeholder="td"
                                                     required
                                                 />
                                             </div>
